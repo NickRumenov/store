@@ -105,3 +105,13 @@ a {
     color-scheme: dark;
   }
 }
+
+.blue-to-purple {
+  background: linear-gradient(0.25turn,purple, blue);
+  color:white;
+}
+
+.max-height {
+  height: 100vh;
+}
+

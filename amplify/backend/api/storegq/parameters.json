@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "storegq",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authamplifystore0c8a90f6",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
