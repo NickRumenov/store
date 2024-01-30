@@ -63,6 +63,7 @@ export type Todo = {
   description?: string | null,
   createdAt: string,
   updatedAt: string,
+  owner?: string | null,
 };
 
 export type UpdateTodoInput = {
@@ -96,6 +97,7 @@ export type Prop = {
   id: string,
   createdAt: string,
   updatedAt: string,
+  owner?: string | null,
 };
 
 export type UpdatePropInput = {
@@ -185,6 +187,7 @@ export type Product = {
   properties?:  Array<Prop | null > | null,
   createdAt: string,
   updatedAt: string,
+  owner?: string | null,
 };
 
 export type UpdateProductInput = {
@@ -376,6 +379,7 @@ export type CreateTodoMutation = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -392,6 +396,7 @@ export type UpdateTodoMutation = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -408,6 +413,7 @@ export type DeleteTodoMutation = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -424,6 +430,7 @@ export type CreatePropMutation = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -440,6 +447,7 @@ export type UpdatePropMutation = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -456,6 +464,7 @@ export type DeletePropMutation = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -489,9 +498,11 @@ export type CreateProductMutation = {
       id: string,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -525,9 +536,11 @@ export type UpdateProductMutation = {
       id: string,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -561,9 +574,11 @@ export type DeleteProductMutation = {
       id: string,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -579,6 +594,7 @@ export type GetTodoQuery = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -598,6 +614,7 @@ export type ListTodosQuery = {
       description?: string | null,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -615,6 +632,7 @@ export type GetPropQuery = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -634,6 +652,7 @@ export type ListPropsQuery = {
       id: string,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -668,9 +687,11 @@ export type GetProductQuery = {
       id: string,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
@@ -702,6 +723,7 @@ export type ListProductsQuery = {
       subCategoryId?: string | null,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null >,
     nextToken?: string | null,
   } | null,
@@ -709,6 +731,7 @@ export type ListProductsQuery = {
 
 export type OnCreateTodoSubscriptionVariables = {
   filter?: ModelSubscriptionTodoFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnCreateTodoSubscription = {
@@ -719,11 +742,13 @@ export type OnCreateTodoSubscription = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnUpdateTodoSubscriptionVariables = {
   filter?: ModelSubscriptionTodoFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnUpdateTodoSubscription = {
@@ -734,11 +759,13 @@ export type OnUpdateTodoSubscription = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnDeleteTodoSubscriptionVariables = {
   filter?: ModelSubscriptionTodoFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnDeleteTodoSubscription = {
@@ -749,11 +776,13 @@ export type OnDeleteTodoSubscription = {
     description?: string | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnCreatePropSubscriptionVariables = {
   filter?: ModelSubscriptionPropFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnCreatePropSubscription = {
@@ -764,11 +793,13 @@ export type OnCreatePropSubscription = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnUpdatePropSubscriptionVariables = {
   filter?: ModelSubscriptionPropFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnUpdatePropSubscription = {
@@ -779,11 +810,13 @@ export type OnUpdatePropSubscription = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnDeletePropSubscriptionVariables = {
   filter?: ModelSubscriptionPropFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnDeletePropSubscription = {
@@ -794,11 +827,13 @@ export type OnDeletePropSubscription = {
     id: string,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnCreateProductSubscriptionVariables = {
   filter?: ModelSubscriptionProductFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnCreateProductSubscription = {
@@ -826,14 +861,17 @@ export type OnCreateProductSubscription = {
       id: string,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnUpdateProductSubscriptionVariables = {
   filter?: ModelSubscriptionProductFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnUpdateProductSubscription = {
@@ -861,14 +899,17 @@ export type OnUpdateProductSubscription = {
       id: string,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };
 
 export type OnDeleteProductSubscriptionVariables = {
   filter?: ModelSubscriptionProductFilterInput | null,
+  owner?: string | null,
 };
 
 export type OnDeleteProductSubscription = {
@@ -896,8 +937,10 @@ export type OnDeleteProductSubscription = {
       id: string,
       createdAt: string,
       updatedAt: string,
+      owner?: string | null,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
+    owner?: string | null,
   } | null,
 };

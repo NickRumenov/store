@@ -18,6 +18,7 @@ export const createTodo = /* GraphQL */ `mutation CreateTodo(
     description
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -35,6 +36,7 @@ export const updateTodo = /* GraphQL */ `mutation UpdateTodo(
     description
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -52,6 +54,7 @@ export const deleteTodo = /* GraphQL */ `mutation DeleteTodo(
     description
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -69,6 +72,7 @@ export const createProp = /* GraphQL */ `mutation CreateProp(
     id
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -86,6 +90,7 @@ export const updateProp = /* GraphQL */ `mutation UpdateProp(
     id
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -103,6 +108,7 @@ export const deleteProp = /* GraphQL */ `mutation DeleteProp(
     id
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -136,10 +142,12 @@ export const createProduct = /* GraphQL */ `mutation CreateProduct(
       id
       createdAt
       updatedAt
+      owner
       __typename
     }
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -173,10 +181,12 @@ export const updateProduct = /* GraphQL */ `mutation UpdateProduct(
       id
       createdAt
       updatedAt
+      owner
       __typename
     }
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -210,10 +220,12 @@ export const deleteProduct = /* GraphQL */ `mutation DeleteProduct(
       id
       createdAt
       updatedAt
+      owner
       __typename
     }
     createdAt
     updatedAt
+    owner
     __typename
   }
 }

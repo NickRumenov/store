@@ -8,13 +8,17 @@ type GeneratedSubscription<InputType, OutputType> = string & {
   __generatedSubscriptionOutput: OutputType;
 };
 
-export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onCreateTodo(filter: $filter) {
+export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo(
+  $filter: ModelSubscriptionTodoFilterInput
+  $owner: String
+) {
+  onCreateTodo(filter: $filter, owner: $owner) {
     id
     name
     description
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -22,13 +26,17 @@ export const onCreateTodo = /* GraphQL */ `subscription OnCreateTodo($filter: Mo
   APITypes.OnCreateTodoSubscriptionVariables,
   APITypes.OnCreateTodoSubscription
 >;
-export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onUpdateTodo(filter: $filter) {
+export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo(
+  $filter: ModelSubscriptionTodoFilterInput
+  $owner: String
+) {
+  onUpdateTodo(filter: $filter, owner: $owner) {
     id
     name
     description
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -36,13 +44,17 @@ export const onUpdateTodo = /* GraphQL */ `subscription OnUpdateTodo($filter: Mo
   APITypes.OnUpdateTodoSubscriptionVariables,
   APITypes.OnUpdateTodoSubscription
 >;
-export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
-  onDeleteTodo(filter: $filter) {
+export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo(
+  $filter: ModelSubscriptionTodoFilterInput
+  $owner: String
+) {
+  onDeleteTodo(filter: $filter, owner: $owner) {
     id
     name
     description
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -50,13 +62,17 @@ export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo($filter: Mo
   APITypes.OnDeleteTodoSubscriptionVariables,
   APITypes.OnDeleteTodoSubscription
 >;
-export const onCreateProp = /* GraphQL */ `subscription OnCreateProp($filter: ModelSubscriptionPropFilterInput) {
-  onCreateProp(filter: $filter) {
+export const onCreateProp = /* GraphQL */ `subscription OnCreateProp(
+  $filter: ModelSubscriptionPropFilterInput
+  $owner: String
+) {
+  onCreateProp(filter: $filter, owner: $owner) {
     key
     value
     id
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -64,13 +80,17 @@ export const onCreateProp = /* GraphQL */ `subscription OnCreateProp($filter: Mo
   APITypes.OnCreatePropSubscriptionVariables,
   APITypes.OnCreatePropSubscription
 >;
-export const onUpdateProp = /* GraphQL */ `subscription OnUpdateProp($filter: ModelSubscriptionPropFilterInput) {
-  onUpdateProp(filter: $filter) {
+export const onUpdateProp = /* GraphQL */ `subscription OnUpdateProp(
+  $filter: ModelSubscriptionPropFilterInput
+  $owner: String
+) {
+  onUpdateProp(filter: $filter, owner: $owner) {
     key
     value
     id
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -78,13 +98,17 @@ export const onUpdateProp = /* GraphQL */ `subscription OnUpdateProp($filter: Mo
   APITypes.OnUpdatePropSubscriptionVariables,
   APITypes.OnUpdatePropSubscription
 >;
-export const onDeleteProp = /* GraphQL */ `subscription OnDeleteProp($filter: ModelSubscriptionPropFilterInput) {
-  onDeleteProp(filter: $filter) {
+export const onDeleteProp = /* GraphQL */ `subscription OnDeleteProp(
+  $filter: ModelSubscriptionPropFilterInput
+  $owner: String
+) {
+  onDeleteProp(filter: $filter, owner: $owner) {
     key
     value
     id
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -92,8 +116,11 @@ export const onDeleteProp = /* GraphQL */ `subscription OnDeleteProp($filter: Mo
   APITypes.OnDeletePropSubscriptionVariables,
   APITypes.OnDeletePropSubscription
 >;
-export const onCreateProduct = /* GraphQL */ `subscription OnCreateProduct($filter: ModelSubscriptionProductFilterInput) {
-  onCreateProduct(filter: $filter) {
+export const onCreateProduct = /* GraphQL */ `subscription OnCreateProduct(
+  $filter: ModelSubscriptionProductFilterInput
+  $owner: String
+) {
+  onCreateProduct(filter: $filter, owner: $owner) {
     id
     name
     status
@@ -115,10 +142,12 @@ export const onCreateProduct = /* GraphQL */ `subscription OnCreateProduct($filt
       id
       createdAt
       updatedAt
+      owner
       __typename
     }
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -126,8 +155,11 @@ export const onCreateProduct = /* GraphQL */ `subscription OnCreateProduct($filt
   APITypes.OnCreateProductSubscriptionVariables,
   APITypes.OnCreateProductSubscription
 >;
-export const onUpdateProduct = /* GraphQL */ `subscription OnUpdateProduct($filter: ModelSubscriptionProductFilterInput) {
-  onUpdateProduct(filter: $filter) {
+export const onUpdateProduct = /* GraphQL */ `subscription OnUpdateProduct(
+  $filter: ModelSubscriptionProductFilterInput
+  $owner: String
+) {
+  onUpdateProduct(filter: $filter, owner: $owner) {
     id
     name
     status
@@ -149,10 +181,12 @@ export const onUpdateProduct = /* GraphQL */ `subscription OnUpdateProduct($filt
       id
       createdAt
       updatedAt
+      owner
       __typename
     }
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -160,8 +194,11 @@ export const onUpdateProduct = /* GraphQL */ `subscription OnUpdateProduct($filt
   APITypes.OnUpdateProductSubscriptionVariables,
   APITypes.OnUpdateProductSubscription
 >;
-export const onDeleteProduct = /* GraphQL */ `subscription OnDeleteProduct($filter: ModelSubscriptionProductFilterInput) {
-  onDeleteProduct(filter: $filter) {
+export const onDeleteProduct = /* GraphQL */ `subscription OnDeleteProduct(
+  $filter: ModelSubscriptionProductFilterInput
+  $owner: String
+) {
+  onDeleteProduct(filter: $filter, owner: $owner) {
     id
     name
     status
@@ -183,10 +220,12 @@ export const onDeleteProduct = /* GraphQL */ `subscription OnDeleteProduct($filt
       id
       createdAt
       updatedAt
+      owner
       __typename
     }
     createdAt
     updatedAt
+    owner
     __typename
   }
 }

@@ -15,6 +15,7 @@ export const getTodo = /* GraphQL */ `query GetTodo($id: ID!) {
     description
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -31,6 +32,7 @@ export const listTodos = /* GraphQL */ `query ListTodos(
       description
       createdAt
       updatedAt
+      owner
       __typename
     }
     nextToken
@@ -45,6 +47,7 @@ export const getProp = /* GraphQL */ `query GetProp($id: ID!) {
     id
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -61,6 +64,7 @@ export const listProps = /* GraphQL */ `query ListProps(
       id
       createdAt
       updatedAt
+      owner
       __typename
     }
     nextToken
@@ -91,10 +95,12 @@ export const getProduct = /* GraphQL */ `query GetProduct($id: ID!) {
       id
       createdAt
       updatedAt
+      owner
       __typename
     }
     createdAt
     updatedAt
+    owner
     __typename
   }
 }
@@ -126,6 +132,7 @@ export const listProducts = /* GraphQL */ `query ListProducts(
       subCategoryId
       createdAt
       updatedAt
+      owner
       __typename
     }
     nextToken

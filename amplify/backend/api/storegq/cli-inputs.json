@@ -13,6 +13,9 @@
         "expirationTime": 365,
         "apiKeyExpirationDate": "2025-01-29T14:20:45.587Z",
         "keyDescription": "productsapikey"
+      },
+      {
+        "mode": "AWS_IAM"
       }
     ]
   }
