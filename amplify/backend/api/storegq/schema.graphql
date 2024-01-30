@@ -13,7 +13,7 @@ type Prop {
   value: String
 }
 
-type Product @model {
+type Product @model @auth(rules: [{ allow: public, operations: [read] }]) {
   id: ID!
   name: String!
   status: String!
