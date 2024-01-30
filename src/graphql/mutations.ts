@@ -59,3 +59,105 @@ export const deleteTodo = /* GraphQL */ `mutation DeleteTodo(
   APITypes.DeleteTodoMutationVariables,
   APITypes.DeleteTodoMutation
 >;
+export const createProduct = /* GraphQL */ `mutation CreateProduct(
+  $input: CreateProductInput!
+  $condition: ModelProductConditionInput
+) {
+  createProduct(input: $input, condition: $condition) {
+    id
+    name
+    status
+    isPromo
+    description
+    price
+    currency
+    img
+    imgAlt
+    thumbnailImg
+    brand
+    category
+    categoryId
+    subCategory
+    subCategoryId
+    properties {
+      key
+      value
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreateProductMutationVariables,
+  APITypes.CreateProductMutation
+>;
+export const updateProduct = /* GraphQL */ `mutation UpdateProduct(
+  $input: UpdateProductInput!
+  $condition: ModelProductConditionInput
+) {
+  updateProduct(input: $input, condition: $condition) {
+    id
+    name
+    status
+    isPromo
+    description
+    price
+    currency
+    img
+    imgAlt
+    thumbnailImg
+    brand
+    category
+    categoryId
+    subCategory
+    subCategoryId
+    properties {
+      key
+      value
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdateProductMutationVariables,
+  APITypes.UpdateProductMutation
+>;
+export const deleteProduct = /* GraphQL */ `mutation DeleteProduct(
+  $input: DeleteProductInput!
+  $condition: ModelProductConditionInput
+) {
+  deleteProduct(input: $input, condition: $condition) {
+    id
+    name
+    status
+    isPromo
+    description
+    price
+    currency
+    img
+    imgAlt
+    thumbnailImg
+    brand
+    category
+    categoryId
+    subCategory
+    subCategoryId
+    properties {
+      key
+      value
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeleteProductMutationVariables,
+  APITypes.DeleteProductMutation
+>;

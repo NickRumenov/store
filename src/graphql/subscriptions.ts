@@ -50,3 +50,96 @@ export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo($filter: Mo
   APITypes.OnDeleteTodoSubscriptionVariables,
   APITypes.OnDeleteTodoSubscription
 >;
+export const onCreateProduct = /* GraphQL */ `subscription OnCreateProduct($filter: ModelSubscriptionProductFilterInput) {
+  onCreateProduct(filter: $filter) {
+    id
+    name
+    status
+    isPromo
+    description
+    price
+    currency
+    img
+    imgAlt
+    thumbnailImg
+    brand
+    category
+    categoryId
+    subCategory
+    subCategoryId
+    properties {
+      key
+      value
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreateProductSubscriptionVariables,
+  APITypes.OnCreateProductSubscription
+>;
+export const onUpdateProduct = /* GraphQL */ `subscription OnUpdateProduct($filter: ModelSubscriptionProductFilterInput) {
+  onUpdateProduct(filter: $filter) {
+    id
+    name
+    status
+    isPromo
+    description
+    price
+    currency
+    img
+    imgAlt
+    thumbnailImg
+    brand
+    category
+    categoryId
+    subCategory
+    subCategoryId
+    properties {
+      key
+      value
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdateProductSubscriptionVariables,
+  APITypes.OnUpdateProductSubscription
+>;
+export const onDeleteProduct = /* GraphQL */ `subscription OnDeleteProduct($filter: ModelSubscriptionProductFilterInput) {
+  onDeleteProduct(filter: $filter) {
+    id
+    name
+    status
+    isPromo
+    description
+    price
+    currency
+    img
+    imgAlt
+    thumbnailImg
+    brand
+    category
+    categoryId
+    subCategory
+    subCategoryId
+    properties {
+      key
+      value
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeleteProductSubscriptionVariables,
+  APITypes.OnDeleteProductSubscription
+>;

@@ -7,3 +7,27 @@ type Todo @model {
   name: String!
   description: String
 }
+
+type Prop {
+  key: String
+  value: String
+}
+
+type Product @model {
+  id: ID!
+  name: String!
+  status: String!
+  isPromo: Boolean!
+  description: String!
+  price: Int!
+  currency: String!
+  img: String!
+  imgAlt: String
+  thumbnailImg: String
+  brand: String!
+  category: String!
+  categoryId: String!
+  subCategory: String
+  subCategoryId: String
+  properties: [Prop]
+}

@@ -38,3 +38,68 @@ export const listTodos = /* GraphQL */ `query ListTodos(
   }
 }
 ` as GeneratedQuery<APITypes.ListTodosQueryVariables, APITypes.ListTodosQuery>;
+export const getProduct = /* GraphQL */ `query GetProduct($id: ID!) {
+  getProduct(id: $id) {
+    id
+    name
+    status
+    isPromo
+    description
+    price
+    currency
+    img
+    imgAlt
+    thumbnailImg
+    brand
+    category
+    categoryId
+    subCategory
+    subCategoryId
+    properties {
+      key
+      value
+      __typename
+    }
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.GetProductQueryVariables,
+  APITypes.GetProductQuery
+>;
+export const listProducts = /* GraphQL */ `query ListProducts(
+  $filter: ModelProductFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listProducts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      status
+      isPromo
+      description
+      price
+      currency
+      img
+      imgAlt
+      thumbnailImg
+      brand
+      category
+      categoryId
+      subCategory
+      subCategoryId
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<
+  APITypes.ListProductsQueryVariables,
+  APITypes.ListProductsQuery
+>;
