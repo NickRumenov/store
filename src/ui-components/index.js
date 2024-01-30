@@ -6,6 +6,8 @@
 
 export { default as ProductCreateForm } from "./ProductCreateForm";
 export { default as ProductUpdateForm } from "./ProductUpdateForm";
+export { default as PropCreateForm } from "./PropCreateForm";
+export { default as PropUpdateForm } from "./PropUpdateForm";
 export { default as TodoCreateForm } from "./TodoCreateForm";
 export { default as TodoUpdateForm } from "./TodoUpdateForm";
 export { default as studioTheme } from "./studioTheme";

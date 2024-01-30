@@ -75,6 +75,39 @@ export type DeleteTodoInput = {
   id: string,
 };
 
+export type CreatePropInput = {
+  key?: string | null,
+  value?: string | null,
+  id?: string | null,
+};
+
+export type ModelPropConditionInput = {
+  key?: ModelStringInput | null,
+  value?: ModelStringInput | null,
+  and?: Array< ModelPropConditionInput | null > | null,
+  or?: Array< ModelPropConditionInput | null > | null,
+  not?: ModelPropConditionInput | null,
+};
+
+export type Prop = {
+  __typename: "Prop",
+  key?: string | null,
+  value?: string | null,
+  id: string,
+  createdAt: string,
+  updatedAt: string,
+};
+
+export type UpdatePropInput = {
+  key?: string | null,
+  value?: string | null,
+  id: string,
+};
+
+export type DeletePropInput = {
+  id: string,
+};
+
 export type CreateProductInput = {
   id?: string | null,
   name: string,
@@ -91,12 +124,6 @@ export type CreateProductInput = {
   categoryId: string,
   subCategory?: string | null,
   subCategoryId?: string | null,
-  properties?: Array< PropInput | null > | null,
-};
-
-export type PropInput = {
-  key?: string | null,
-  value?: string | null,
 };
 
 export type ModelProductConditionInput = {
@@ -160,12 +187,6 @@ export type Product = {
   updatedAt: string,
 };
 
-export type Prop = {
-  __typename: "Prop",
-  key?: string | null,
-  value?: string | null,
-};
-
 export type UpdateProductInput = {
   id: string,
   name?: string | null,
@@ -182,7 +203,6 @@ export type UpdateProductInput = {
   categoryId?: string | null,
   subCategory?: string | null,
   subCategoryId?: string | null,
-  properties?: Array< PropInput | null > | null,
 };
 
 export type DeleteProductInput = {
@@ -217,6 +237,20 @@ export type ModelIDInput = {
 export type ModelTodoConnection = {
   __typename: "ModelTodoConnection",
   items:  Array<Todo | null >,
+  nextToken?: string | null,
+};
+
+export type ModelPropFilterInput = {
+  key?: ModelStringInput | null,
+  value?: ModelStringInput | null,
+  and?: Array< ModelPropFilterInput | null > | null,
+  or?: Array< ModelPropFilterInput | null > | null,
+  not?: ModelPropFilterInput | null,
+};
+
+export type ModelPropConnection = {
+  __typename: "ModelPropConnection",
+  items:  Array<Prop | null >,
   nextToken?: string | null,
 };
 
@@ -283,6 +317,13 @@ export type ModelSubscriptionStringInput = {
   beginsWith?: string | null,
   in?: Array< string | null > | null,
   notIn?: Array< string | null > | null,
+};
+
+export type ModelSubscriptionPropFilterInput = {
+  key?: ModelSubscriptionStringInput | null,
+  value?: ModelSubscriptionStringInput | null,
+  and?: Array< ModelSubscriptionPropFilterInput | null > | null,
+  or?: Array< ModelSubscriptionPropFilterInput | null > | null,
 };
 
 export type ModelSubscriptionProductFilterInput = {
@@ -370,6 +411,54 @@ export type DeleteTodoMutation = {
   } | null,
 };
 
+export type CreatePropMutationVariables = {
+  input: CreatePropInput,
+  condition?: ModelPropConditionInput | null,
+};
+
+export type CreatePropMutation = {
+  createProp?:  {
+    __typename: "Prop",
+    key?: string | null,
+    value?: string | null,
+    id: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type UpdatePropMutationVariables = {
+  input: UpdatePropInput,
+  condition?: ModelPropConditionInput | null,
+};
+
+export type UpdatePropMutation = {
+  updateProp?:  {
+    __typename: "Prop",
+    key?: string | null,
+    value?: string | null,
+    id: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type DeletePropMutationVariables = {
+  input: DeletePropInput,
+  condition?: ModelPropConditionInput | null,
+};
+
+export type DeletePropMutation = {
+  deleteProp?:  {
+    __typename: "Prop",
+    key?: string | null,
+    value?: string | null,
+    id: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type CreateProductMutationVariables = {
   input: CreateProductInput,
   condition?: ModelProductConditionInput | null,
@@ -397,6 +486,9 @@ export type CreateProductMutation = {
       __typename: "Prop",
       key?: string | null,
       value?: string | null,
+      id: string,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
@@ -430,6 +522,9 @@ export type UpdateProductMutation = {
       __typename: "Prop",
       key?: string | null,
       value?: string | null,
+      id: string,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
@@ -463,6 +558,9 @@ export type DeleteProductMutation = {
       __typename: "Prop",
       key?: string | null,
       value?: string | null,
+      id: string,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
@@ -505,6 +603,42 @@ export type ListTodosQuery = {
   } | null,
 };
 
+export type GetPropQueryVariables = {
+  id: string,
+};
+
+export type GetPropQuery = {
+  getProp?:  {
+    __typename: "Prop",
+    key?: string | null,
+    value?: string | null,
+    id: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type ListPropsQueryVariables = {
+  filter?: ModelPropFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListPropsQuery = {
+  listProps?:  {
+    __typename: "ModelPropConnection",
+    items:  Array< {
+      __typename: "Prop",
+      key?: string | null,
+      value?: string | null,
+      id: string,
+      createdAt: string,
+      updatedAt: string,
+    } | null >,
+    nextToken?: string | null,
+  } | null,
+};
+
 export type GetProductQueryVariables = {
   id: string,
 };
@@ -531,6 +665,9 @@ export type GetProductQuery = {
       __typename: "Prop",
       key?: string | null,
       value?: string | null,
+      id: string,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
@@ -615,6 +752,51 @@ export type OnDeleteTodoSubscription = {
   } | null,
 };
 
+export type OnCreatePropSubscriptionVariables = {
+  filter?: ModelSubscriptionPropFilterInput | null,
+};
+
+export type OnCreatePropSubscription = {
+  onCreateProp?:  {
+    __typename: "Prop",
+    key?: string | null,
+    value?: string | null,
+    id: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnUpdatePropSubscriptionVariables = {
+  filter?: ModelSubscriptionPropFilterInput | null,
+};
+
+export type OnUpdatePropSubscription = {
+  onUpdateProp?:  {
+    __typename: "Prop",
+    key?: string | null,
+    value?: string | null,
+    id: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
+export type OnDeletePropSubscriptionVariables = {
+  filter?: ModelSubscriptionPropFilterInput | null,
+};
+
+export type OnDeletePropSubscription = {
+  onDeleteProp?:  {
+    __typename: "Prop",
+    key?: string | null,
+    value?: string | null,
+    id: string,
+    createdAt: string,
+    updatedAt: string,
+  } | null,
+};
+
 export type OnCreateProductSubscriptionVariables = {
   filter?: ModelSubscriptionProductFilterInput | null,
 };
@@ -641,6 +823,9 @@ export type OnCreateProductSubscription = {
       __typename: "Prop",
       key?: string | null,
       value?: string | null,
+      id: string,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
@@ -673,6 +858,9 @@ export type OnUpdateProductSubscription = {
       __typename: "Prop",
       key?: string | null,
       value?: string | null,
+      id: string,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     createdAt: string,
     updatedAt: string,
@@ -705,6 +893,9 @@ export type OnDeleteProductSubscription = {
       __typename: "Prop",
       key?: string | null,
       value?: string | null,
+      id: string,
+      createdAt: string,
+      updatedAt: string,
     } | null > | null,
     createdAt: string,
     updatedAt: string,

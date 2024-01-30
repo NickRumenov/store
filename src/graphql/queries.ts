@@ -38,6 +38,36 @@ export const listTodos = /* GraphQL */ `query ListTodos(
   }
 }
 ` as GeneratedQuery<APITypes.ListTodosQueryVariables, APITypes.ListTodosQuery>;
+export const getProp = /* GraphQL */ `query GetProp($id: ID!) {
+  getProp(id: $id) {
+    key
+    value
+    id
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedQuery<APITypes.GetPropQueryVariables, APITypes.GetPropQuery>;
+export const listProps = /* GraphQL */ `query ListProps(
+  $filter: ModelPropFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listProps(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      key
+      value
+      id
+      createdAt
+      updatedAt
+      __typename
+    }
+    nextToken
+    __typename
+  }
+}
+` as GeneratedQuery<APITypes.ListPropsQueryVariables, APITypes.ListPropsQuery>;
 export const getProduct = /* GraphQL */ `query GetProduct($id: ID!) {
   getProduct(id: $id) {
     id
@@ -58,6 +88,9 @@ export const getProduct = /* GraphQL */ `query GetProduct($id: ID!) {
     properties {
       key
       value
+      id
+      createdAt
+      updatedAt
       __typename
     }
     createdAt

@@ -50,6 +50,48 @@ export const onDeleteTodo = /* GraphQL */ `subscription OnDeleteTodo($filter: Mo
   APITypes.OnDeleteTodoSubscriptionVariables,
   APITypes.OnDeleteTodoSubscription
 >;
+export const onCreateProp = /* GraphQL */ `subscription OnCreateProp($filter: ModelSubscriptionPropFilterInput) {
+  onCreateProp(filter: $filter) {
+    key
+    value
+    id
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnCreatePropSubscriptionVariables,
+  APITypes.OnCreatePropSubscription
+>;
+export const onUpdateProp = /* GraphQL */ `subscription OnUpdateProp($filter: ModelSubscriptionPropFilterInput) {
+  onUpdateProp(filter: $filter) {
+    key
+    value
+    id
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnUpdatePropSubscriptionVariables,
+  APITypes.OnUpdatePropSubscription
+>;
+export const onDeleteProp = /* GraphQL */ `subscription OnDeleteProp($filter: ModelSubscriptionPropFilterInput) {
+  onDeleteProp(filter: $filter) {
+    key
+    value
+    id
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedSubscription<
+  APITypes.OnDeletePropSubscriptionVariables,
+  APITypes.OnDeletePropSubscription
+>;
 export const onCreateProduct = /* GraphQL */ `subscription OnCreateProduct($filter: ModelSubscriptionProductFilterInput) {
   onCreateProduct(filter: $filter) {
     id
@@ -70,6 +112,9 @@ export const onCreateProduct = /* GraphQL */ `subscription OnCreateProduct($filt
     properties {
       key
       value
+      id
+      createdAt
+      updatedAt
       __typename
     }
     createdAt
@@ -101,6 +146,9 @@ export const onUpdateProduct = /* GraphQL */ `subscription OnUpdateProduct($filt
     properties {
       key
       value
+      id
+      createdAt
+      updatedAt
       __typename
     }
     createdAt
@@ -132,6 +180,9 @@ export const onDeleteProduct = /* GraphQL */ `subscription OnDeleteProduct($filt
     properties {
       key
       value
+      id
+      createdAt
+      updatedAt
       __typename
     }
     createdAt

@@ -59,6 +59,57 @@ export const deleteTodo = /* GraphQL */ `mutation DeleteTodo(
   APITypes.DeleteTodoMutationVariables,
   APITypes.DeleteTodoMutation
 >;
+export const createProp = /* GraphQL */ `mutation CreateProp(
+  $input: CreatePropInput!
+  $condition: ModelPropConditionInput
+) {
+  createProp(input: $input, condition: $condition) {
+    key
+    value
+    id
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.CreatePropMutationVariables,
+  APITypes.CreatePropMutation
+>;
+export const updateProp = /* GraphQL */ `mutation UpdateProp(
+  $input: UpdatePropInput!
+  $condition: ModelPropConditionInput
+) {
+  updateProp(input: $input, condition: $condition) {
+    key
+    value
+    id
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.UpdatePropMutationVariables,
+  APITypes.UpdatePropMutation
+>;
+export const deleteProp = /* GraphQL */ `mutation DeleteProp(
+  $input: DeletePropInput!
+  $condition: ModelPropConditionInput
+) {
+  deleteProp(input: $input, condition: $condition) {
+    key
+    value
+    id
+    createdAt
+    updatedAt
+    __typename
+  }
+}
+` as GeneratedMutation<
+  APITypes.DeletePropMutationVariables,
+  APITypes.DeletePropMutation
+>;
 export const createProduct = /* GraphQL */ `mutation CreateProduct(
   $input: CreateProductInput!
   $condition: ModelProductConditionInput
@@ -82,6 +133,9 @@ export const createProduct = /* GraphQL */ `mutation CreateProduct(
     properties {
       key
       value
+      id
+      createdAt
+      updatedAt
       __typename
     }
     createdAt
@@ -116,6 +170,9 @@ export const updateProduct = /* GraphQL */ `mutation UpdateProduct(
     properties {
       key
       value
+      id
+      createdAt
+      updatedAt
       __typename
     }
     createdAt
@@ -150,6 +207,9 @@ export const deleteProduct = /* GraphQL */ `mutation DeleteProduct(
     properties {
       key
       value
+      id
+      createdAt
+      updatedAt
       __typename
     }
     createdAt
