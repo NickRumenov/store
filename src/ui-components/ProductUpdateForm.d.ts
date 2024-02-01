@@ -27,7 +27,7 @@ export declare type ProductUpdateFormInputValues = {
     status?: string;
     isPromo?: boolean;
     description?: string;
-    price?: number;
+    price?: string;
     currency?: string;
     img?: string;
     imgAlt?: string;
@@ -37,13 +37,15 @@ export declare type ProductUpdateFormInputValues = {
     categoryId?: string;
     subCategory?: string;
     subCategoryId?: string;
+    createdAt?: string;
+    updatedAt?: string;
 };
 export declare type ProductUpdateFormValidationValues = {
     name?: ValidationFunction<string>;
     status?: ValidationFunction<string>;
     isPromo?: ValidationFunction<boolean>;
     description?: ValidationFunction<string>;
-    price?: ValidationFunction<number>;
+    price?: ValidationFunction<string>;
     currency?: ValidationFunction<string>;
     img?: ValidationFunction<string>;
     imgAlt?: ValidationFunction<string>;
@@ -53,6 +55,8 @@ export declare type ProductUpdateFormValidationValues = {
     categoryId?: ValidationFunction<string>;
     subCategory?: ValidationFunction<string>;
     subCategoryId?: ValidationFunction<string>;
+    createdAt?: ValidationFunction<string>;
+    updatedAt?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ProductUpdateFormOverridesProps = {
@@ -71,6 +75,8 @@ export declare type ProductUpdateFormOverridesProps = {
     categoryId?: PrimitiveOverrideProps<TextFieldProps>;
     subCategory?: PrimitiveOverrideProps<TextFieldProps>;
     subCategoryId?: PrimitiveOverrideProps<TextFieldProps>;
+    createdAt?: PrimitiveOverrideProps<TextFieldProps>;
+    updatedAt?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type ProductUpdateFormProps = React.PropsWithChildren<{
     overrides?: ProductUpdateFormOverridesProps | undefined | null;

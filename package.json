@@ -9,12 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-amplify/adapter-nextjs": "^1.0.13",
     "@aws-amplify/ui-react": "^6.1.2",
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
+    "autoprefixer": "^10.4.17",
     "aws-amplify": "^6.0.13",
+    "flowbite": "^2.2.1",
+    "flowbite-react": "^0.7.2",
     "next": "14.1.0",
+    "postcss": "^8.4.33",
     "react": "^18",
     "react-dom": "^18",
-    "sharp": "^0.33.2"
+    "sharp": "^0.33.2",
+    "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
     "@types/node": "^20",

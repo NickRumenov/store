@@ -43,6 +43,8 @@ export default function ProductCreateForm(props) {
     categoryId: "",
     subCategory: "",
     subCategoryId: "",
+    createdAt: "",
+    updatedAt: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [status, setStatus] = React.useState(initialValues.status);
@@ -66,6 +68,8 @@ export default function ProductCreateForm(props) {
   const [subCategoryId, setSubCategoryId] = React.useState(
     initialValues.subCategoryId
   );
+  const [createdAt, setCreatedAt] = React.useState(initialValues.createdAt);
+  const [updatedAt, setUpdatedAt] = React.useState(initialValues.updatedAt);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.name);
@@ -82,23 +86,27 @@ export default function ProductCreateForm(props) {
     setCategoryId(initialValues.categoryId);
     setSubCategory(initialValues.subCategory);
     setSubCategoryId(initialValues.subCategoryId);
+    setCreatedAt(initialValues.createdAt);
+    setUpdatedAt(initialValues.updatedAt);
     setErrors({});
   };
   const validations = {
-    name: [{ type: "Required" }],
-    status: [{ type: "Required" }],
-    isPromo: [{ type: "Required" }],
-    description: [{ type: "Required" }],
+    name: [],
+    status: [],
+    isPromo: [],
+    description: [],
     price: [{ type: "Required" }],
-    currency: [{ type: "Required" }],
-    img: [{ type: "Required" }],
+    currency: [],
+    img: [],
     imgAlt: [],
     thumbnailImg: [],
-    brand: [{ type: "Required" }],
-    category: [{ type: "Required" }],
-    categoryId: [{ type: "Required" }],
+    brand: [],
+    category: [],
+    categoryId: [],
     subCategory: [],
     subCategoryId: [],
+    createdAt: [],
+    updatedAt: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -116,6 +124,23 @@ export default function ProductCreateForm(props) {
     }
     setErrors((errors) => ({ ...errors, [fieldName]: validationResponse }));
     return validationResponse;
+  };
+  const convertToLocal = (date) => {
+    const df = new Intl.DateTimeFormat("default", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      calendar: "iso8601",
+      numberingSystem: "latn",
+      hourCycle: "h23",
+    });
+    const parts = df.formatToParts(date).reduce((acc, part) => {
+      acc[part.type] = part.value;
+      return acc;
+    }, {});
+    return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`;
   };
   return (
     <Grid
@@ -140,6 +165,8 @@ export default function ProductCreateForm(props) {
           categoryId,
           subCategory,
           subCategoryId,
+          createdAt,
+          updatedAt,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -195,7 +222,7 @@ export default function ProductCreateForm(props) {
     >
       <TextField
         label="Name"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={name}
         onChange={(e) => {
@@ -216,6 +243,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -232,7 +261,7 @@ export default function ProductCreateForm(props) {
       ></TextField>
       <TextField
         label="Status"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={status}
         onChange={(e) => {
@@ -253,6 +282,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.status ?? value;
@@ -290,6 +321,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.isPromo ?? value;
@@ -306,7 +339,7 @@ export default function ProductCreateForm(props) {
       ></SwitchField>
       <TextField
         label="Description"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={description}
         onChange={(e) => {
@@ -327,6 +360,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.description ?? value;
@@ -345,13 +380,9 @@ export default function ProductCreateForm(props) {
         label="Price"
         isRequired={true}
         isReadOnly={false}
-        type="number"
-        step="any"
         value={price}
         onChange={(e) => {
-          let value = isNaN(parseInt(e.target.value))
-            ? e.target.value
-            : parseInt(e.target.value);
+          let { value } = e.target;
           if (onChange) {
             const modelFields = {
               name,
@@ -368,6 +399,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.price ?? value;
@@ -384,7 +417,7 @@ export default function ProductCreateForm(props) {
       ></TextField>
       <TextField
         label="Currency"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={currency}
         onChange={(e) => {
@@ -405,6 +438,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.currency ?? value;
@@ -421,7 +456,7 @@ export default function ProductCreateForm(props) {
       ></TextField>
       <TextField
         label="Img"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={img}
         onChange={(e) => {
@@ -442,6 +477,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.img ?? value;
@@ -479,6 +516,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.imgAlt ?? value;
@@ -516,6 +555,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.thumbnailImg ?? value;
@@ -532,7 +573,7 @@ export default function ProductCreateForm(props) {
       ></TextField>
       <TextField
         label="Brand"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={brand}
         onChange={(e) => {
@@ -553,6 +594,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.brand ?? value;
@@ -569,7 +612,7 @@ export default function ProductCreateForm(props) {
       ></TextField>
       <TextField
         label="Category"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={category}
         onChange={(e) => {
@@ -590,6 +633,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.category ?? value;
@@ -606,7 +651,7 @@ export default function ProductCreateForm(props) {
       ></TextField>
       <TextField
         label="Category id"
-        isRequired={true}
+        isRequired={false}
         isReadOnly={false}
         value={categoryId}
         onChange={(e) => {
@@ -627,6 +672,8 @@ export default function ProductCreateForm(props) {
               categoryId: value,
               subCategory,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.categoryId ?? value;
@@ -664,6 +711,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory: value,
               subCategoryId,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.subCategory ?? value;
@@ -701,6 +750,8 @@ export default function ProductCreateForm(props) {
               categoryId,
               subCategory,
               subCategoryId: value,
+              createdAt,
+              updatedAt,
             };
             const result = onChange(modelFields);
             value = result?.subCategoryId ?? value;
@@ -714,6 +765,88 @@ export default function ProductCreateForm(props) {
         errorMessage={errors.subCategoryId?.errorMessage}
         hasError={errors.subCategoryId?.hasError}
         {...getOverrideProps(overrides, "subCategoryId")}
+      ></TextField>
+      <TextField
+        label="Created at"
+        isRequired={false}
+        isReadOnly={false}
+        type="datetime-local"
+        value={createdAt && convertToLocal(new Date(createdAt))}
+        onChange={(e) => {
+          let value =
+            e.target.value === "" ? "" : new Date(e.target.value).toISOString();
+          if (onChange) {
+            const modelFields = {
+              name,
+              status,
+              isPromo,
+              description,
+              price,
+              currency,
+              img,
+              imgAlt,
+              thumbnailImg,
+              brand,
+              category,
+              categoryId,
+              subCategory,
+              subCategoryId,
+              createdAt: value,
+              updatedAt,
+            };
+            const result = onChange(modelFields);
+            value = result?.createdAt ?? value;
+          }
+          if (errors.createdAt?.hasError) {
+            runValidationTasks("createdAt", value);
+          }
+          setCreatedAt(value);
+        }}
+        onBlur={() => runValidationTasks("createdAt", createdAt)}
+        errorMessage={errors.createdAt?.errorMessage}
+        hasError={errors.createdAt?.hasError}
+        {...getOverrideProps(overrides, "createdAt")}
+      ></TextField>
+      <TextField
+        label="Updated at"
+        isRequired={false}
+        isReadOnly={false}
+        type="datetime-local"
+        value={updatedAt && convertToLocal(new Date(updatedAt))}
+        onChange={(e) => {
+          let value =
+            e.target.value === "" ? "" : new Date(e.target.value).toISOString();
+          if (onChange) {
+            const modelFields = {
+              name,
+              status,
+              isPromo,
+              description,
+              price,
+              currency,
+              img,
+              imgAlt,
+              thumbnailImg,
+              brand,
+              category,
+              categoryId,
+              subCategory,
+              subCategoryId,
+              createdAt,
+              updatedAt: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.updatedAt ?? value;
+          }
+          if (errors.updatedAt?.hasError) {
+            runValidationTasks("updatedAt", value);
+          }
+          setUpdatedAt(value);
+        }}
+        onBlur={() => runValidationTasks("updatedAt", updatedAt)}
+        errorMessage={errors.updatedAt?.errorMessage}
+        hasError={errors.updatedAt?.hasError}
+        {...getOverrideProps(overrides, "updatedAt")}
       ></TextField>
       <Flex
         justifyContent="space-between"

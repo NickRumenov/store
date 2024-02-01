@@ -2,32 +2,48 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
-type Todo @model @auth(rules: [{ allow: public, operations: [read], provider: apiKey}, { allow: owner }]) {
+type Todo
+@model(timestamps: {createdAt: "createdAt", updatedAt: "updatedAt" })
+@auth(rules: [{ allow: public, operations: [read]}]) {
   id: ID!
   name: String!
   description: String
 }
 
-type Prop @model @auth(rules: [{ allow: public, operations: [read], provider: apiKey}, { allow: owner }]) {
+type Prop @model @auth(rules: [
+  { allow: owner }
+  { allow: private, operations: [read] }
+  { allow: public, provider: iam, operations: [read] }
+  { allow: public, provider: apiKey, operations: [read] }
+]) {
   key: String
   value: String
 }
 
-type Product @model @auth(rules: [{ allow: public, operations: [read], provider: apiKey}, { allow: owner }]) {
+type Product
+@model(timestamps: {createdAt: "createdAt", updatedAt: "updatedAt" })
+@auth(rules: [
+  { allow: owner }
+  { allow: private, operations: [read] }
+  { allow: public, provider: iam, operations: [read] }
+  { allow: public, provider: apiKey, operations: [read] }
+]) {
   id: ID!
-  name: String!
-  status: String!
-  isPromo: Boolean!
-  description: String!
-  price: Int!
-  currency: String!
-  img: String!
+  name: String
+  status: String
+  isPromo: Boolean
+  description: String
+  price: String!
+  currency: String
+  img: String
   imgAlt: String
   thumbnailImg: String
-  brand: String!
-  category: String!
-  categoryId: String!
+  brand: String
+  category: String
+  categoryId: String
   subCategory: String
   subCategoryId: String
   properties: [Prop]
+  createdAt: AWSDateTime
+  updatedAt: AWSDateTime
 }

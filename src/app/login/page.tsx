@@ -23,11 +23,8 @@ function Login({signOut, user}: WithAuthenticatorProps) {
 			return result;
 		}
 		
-		listAll().then(response => {
-			console.log(response);
-		})
+		listAll();
 	}, []);
-	
 	
 	return (<>
 				<h1>Hello {user?.signInDetails?.loginId}</h1>
