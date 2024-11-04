@@ -6,6 +6,7 @@ import NavBar from "@/app/components/NavBar";
 function Page() {
   return (
       <div className="bg-white">
+          DEXTOPIA
           <Banner/>
           <NavBar/>
           <h1>Store</h1>
